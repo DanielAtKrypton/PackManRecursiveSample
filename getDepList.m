@@ -3,11 +3,8 @@
 %   Modify this if you want to add more dependencies to your project
 
 function depList = getDepList
-
-% Arguments for DepMatRepo: DepMatRepo(Name, Branch, Url, FolderName, Commit, GetLatest)
-% Example: 
-depList           = DepMatRepo('PackMan', 'master', 'https://github.com/OmidS/PackMan.git', 'PackMan', '', true);
-depList(end+1) = DepMatRepo('PackManRecursiveSample', 'master', 'https://github.com/OmidS/PackManRecursiveSample', 'PackManRecursiveSample', '', true); % To fetch the latest version
-% depList(end+1) = DepMatRepo('someLibrary', 'master', 'https://github.com/<user>/<repo>.git', 'dirName', 'commit-hash', false); % To fetch the same version as package.mat
-
-end
+depList        = [
+    {'PackMan', 'release', 'https://github.com/DanielAtKrypton/PackMan.git', 'PackMan', '', true};
+    {'PackManRecursiveSample', 'master', 'https://github.com/DanielAtKrypton/PackManRecursiveSample.git', 'PackManRecursiveSample', '', true};
+];
+depList = cell2struct(depList, {'Name', 'Branch', 'Url', 'FolderName', 'Commit', 'GetLatest'}, 2);
